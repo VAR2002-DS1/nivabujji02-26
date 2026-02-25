@@ -7,18 +7,18 @@
 <style>
 body{
     margin:0;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Brush Script MT', cursive;
     background:linear-gradient(135deg,#ffb6d9,#ffcce6);
     overflow:hidden;
     text-align:center;
-    color:#ff1493;
+    color:#c2185b;
 }
 
 /* Falling Hearts */
 .heart{
     position:fixed;
     top:-10px;
-    font-size:20px;
+    font-size:25px;
     animation:fall linear infinite;
     z-index:1;
 }
@@ -41,45 +41,57 @@ body{
     display:flex;
 }
 
+h1{
+    font-size:45px;
+}
+
+/* BIGGER BUTTONS */
 button{
-    padding:12px 25px;
-    margin:10px;
-    font-size:18px;
+    padding:18px 40px;
+    margin:15px;
+    font-size:22px;
     border:none;
-    border-radius:30px;
+    border-radius:40px;
     cursor:pointer;
     background:#ff4d6d;
     color:white;
+    font-family: 'Brush Script MT', cursive;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
 button:hover{
     background:#ff1744;
+    transform:scale(1.05);
 }
 
+/* BIGGER INPUT */
 input{
-    padding:10px;
-    font-size:16px;
-    border-radius:20px;
+    padding:18px;
+    font-size:22px;
+    border-radius:30px;
     border:2px solid pink;
     text-align:center;
+    width:300px;
+    font-family: 'Brush Script MT', cursive;
 }
 
 /* Pirate Scroll */
 .paper{
-    width:75%;
-    max-width:700px;
+    width:80%;
+    max-width:750px;
     background:#fdf1d6;
     color:#5a3e1b;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 0 40px rgba(0,0,0,0.4);
-    font-family: Georgia, serif;
+    padding:60px;
+    border-radius:20px;
+    box-shadow:0 0 50px rgba(0,0,0,0.4);
+    font-family: 'Brush Script MT', cursive;
+    font-size:24px;
     line-height:1.8;
     transform:scaleY(0);
     transform-origin:top;
     animation:unroll 3s forwards;
     overflow:auto;
-    max-height:80vh;
+    max-height:85vh;
 }
 
 @keyframes unroll{
@@ -87,31 +99,28 @@ input{
 }
 
 .scroll-image{
-    width:220px;
-    border-radius:15px;
-    margin:20px 0;
-    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    width:260px;
+    border-radius:20px;
+    margin:25px 0;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
 <div id="page1" class="page active">
     <h1>💖 Verify Your Identity 💖</h1>
     <button onclick="goPage2()">GO ❤️</button>
 </div>
 
-<!-- PAGE 2 -->
 <div id="page2" class="page">
     <h1>Are you Nivashini? ❤️</h1>
-    <img src="niva.jpg" width="220" style="border-radius:20px; margin:20px;">
+    <img src="niva.jpg" width="260" style="border-radius:25px; margin:25px;">
     <button onclick="goPage3()">Yes ❤️</button>
     <button onclick="goStart()">No 💔</button>
 </div>
 
-<!-- PAGE 3 -->
 <div id="page3" class="page">
     <h1>What is our Netflix profile name? ❤️</h1>
     <input type="text" id="answer" placeholder="Enter answer">
@@ -119,7 +128,6 @@ input{
     <button onclick="checkAnswer()">Submit 💌</button>
 </div>
 
-<!-- FINAL PAGE -->
 <div id="finalPage" class="page">
     <div class="paper">
         <h2>🏴‍☠️ A Love Message From My Heart ❤️</h2>
@@ -162,14 +170,12 @@ function showPage(id){
     document.getElementById(id).classList.add("active");
 }
 
-/* Falling Hearts */
 const hearts = ["❤️","💖","💗","💘","💝","💕"];
 function createHeart(){
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random()*20 + 15 + "px";
     heart.style.animationDuration = Math.random()*3 + 3 + "s";
     document.body.appendChild(heart);
     setTimeout(()=>{ heart.remove(); },6000);
